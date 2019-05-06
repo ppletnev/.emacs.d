@@ -9,6 +9,11 @@
 
 (windmove-default-keybindings)
 
+
+;; Load themes from .emacs.d/
+(add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
+
+
 (require 'lsp-mode)
 (add-hook 'c-mode-hook #'lsp)
 (add-hook 'c++-mode-hook #'lsp)
