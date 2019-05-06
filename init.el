@@ -66,6 +66,7 @@ There are two things you can do about this warning:
  '(custom-safe-themes
    (quote
     ("2925ed246fb757da0e8784ecf03b9523bccd8b7996464e587b081037e0e98001" default)))
+ '(display-line-numbers t)
  '(package-selected-packages (quote (use-package lsp-ui company-lsp hydra)))
  '(show-paren-mode t))
 (custom-set-faces
