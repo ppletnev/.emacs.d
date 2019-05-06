@@ -9,10 +9,14 @@
 
 (windmove-default-keybindings)
 
+;; Load additional packages from .emacs.d/
+(add-to-list 'load-path "~/.emacs.d/packages/")
 
 ;; Load themes from .emacs.d/
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
 
+;; Show Speedbar in the same frame
+(require 'sr-speedbar)
 
 (require 'lsp-mode)
 (add-hook 'c-mode-hook #'lsp)
