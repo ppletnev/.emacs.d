@@ -79,3 +79,15 @@ There are two things you can do about this warning:
 
 (setq lsp-clients-clangd-executable "/usr/local/Cellar/llvm/8.0.0/bin/clangd")
 
+
+(add-hook
+ 'c-mode-hook
+ (lambda ()
+   (font-lock-add-keywords
+    nil
+    '(
+      ("\\<\\(\\(?:0x\\|0b\\|0o\\)?[0-9]+\\(?:U\\|UL\\|L\\|ULL\\|LL\\)?\\)\\>" 1 font-lock-constant-face keep)
+      ("\\<\\(if\\|switch\\|return\\|for\\|while\\|sizeof\\)\\>" 1 font-lock-keyword-face keep)
+      ("\\<\\([_a-zA-Z][_a-zA-Z0-9]*\\)\\>\\s *(" 1 font-lock-function-name-face keep)
+      ("\\(+\\|-\\|=\\|&\\||\\|%\\|*\\|!\\|>\\|<\\|~\\|^\\|/\\|\\.\\|?\\|:\\)" 1 font-lock-keyword-face keep)
+      ))))
