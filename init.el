@@ -91,3 +91,5 @@ There are two things you can do about this warning:
       ("\\<\\([_a-zA-Z][_a-zA-Z0-9]*\\)\\>\\s *(" 1 font-lock-function-name-face keep)
       ("\\(+\\|-\\|=\\|&\\||\\|%\\|*\\|!\\|>\\|<\\|~\\|^\\|/\\|\\.\\|?\\|:\\)" 1 font-lock-keyword-face keep)
       ))))
+
+(savehist-mode 1)
