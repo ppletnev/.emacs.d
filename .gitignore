@@ -1,3 +1,6 @@
 .DS_Store
 .lsp-session*
 auto-save-list/
+history
+.cache/
+init.el~

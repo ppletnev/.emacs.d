@@ -67,7 +67,10 @@ There are two things you can do about this warning:
    (quote
     ("2925ed246fb757da0e8784ecf03b9523bccd8b7996464e587b081037e0e98001" default)))
 
- '(package-selected-packages (quote (use-package lsp-ui company-lsp hydra)))
+ '(lsp-prefer-flymake nil)
+ '(package-selected-packages
+   (quote
+    (treemacs-magit treemacs-icons-dired treemacs-projectile treemacs-evil treemacs use-package lsp-ui company-lsp hydra)))
  '(show-paren-mode t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -93,3 +96,5 @@ There are two things you can do about this warning:
       ))))
 
 (savehist-mode 1)
+
+(load-file "~/.emacs.d/treemacs_cfg.el")
