@@ -20,6 +20,12 @@
              '("melpa" . "https://melpa.org/packages/") t)
 (package-initialize)
 
+;; Ensure that use-package is loaded
+(unless (package-installed-p 'use-package)
+  (package-refresh-contents)
+  (package-initialize)
+  (package-install 'use-package))
+
 (require 'use-package)
 
 ;; Make sure that package is always loaded from ELPA if not present
