@@ -5,3 +5,4 @@ history
 .cache/
 init.el~
 .vscode
+elpa/
