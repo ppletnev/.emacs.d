@@ -15,46 +15,35 @@
 ;; Load themes from .emacs.d/
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
 
-;; Show Speedbar in the same frame
-(require 'sr-speedbar)
-
-(require 'lsp-mode)
-(add-hook 'c-mode-hook #'lsp)
-(add-hook 'c++-mode-hook #'lsp)
-
-;; (use-package lsp-mode
-;;   :ensure t
-;;   :pin melpa
-;;   :init
-;;   (require 'lsp-clients)
-;;   (when (equal system-type 'darwin)
-;;       (setq lsp-clients-clangd-executable "/usr/local/Cellar/llvm/8.0.0/bin/clangd"))
-;;   :config
-;;   (lsp-clients-register-clangd))
-
-(require 'company-lsp)
-(push 'company-lsp company-backends)
-
-(require 'lsp-ui)
-(add-hook 'lsp-mode-hook 'lsp-ui-mode)
-
 (require 'package)
-(let* ((no-ssl (and (memq system-type '(windows-nt ms-dos))
-                    (not (gnutls-available-p))))
-       (proto (if no-ssl "http" "https")))
-  (when no-ssl (warn "\
-Your version of Emacs does not support SSL connections,
-which is unsafe because it allows man-in-the-middle attacks.
-There are two things you can do about this warning:
-1. Install an Emacs version that does support SSL and be safe.
-2. Remove this warning from your init file so you won't see it again."))
-  ;; Comment/uncomment these two lines to enable/disable MELPA and MELPA Stable as desired
-  (add-to-list 'package-archives (cons "melpa" (concat proto "://melpa.org/packages/")) t)
-  ;;(add-to-list 'package-archives (cons "melpa-stable" (concat proto "://stable.melpa.org/packages/")) t)
-  (when (< emacs-major-version 24)
-    ;; For important compatibility libraries like cl-lib
-    (add-to-list 'package-archives (cons "gnu" (concat proto "://elpa.gnu.org/packages/")))))
+(add-to-list 'package-archives
+             '("melpa" . "https://melpa.org/packages/") t)
 (package-initialize)
+
+(require 'use-package)
+
+;; Make sure that package is always loaded from ELPA if not present
+(require 'use-package-ensure)
+(setq use-package-always-ensure t)
+
+;; Update outdated packages
+(use-package auto-package-update
+  :config
+  (setq auto-package-update-delete-old-versions t)
+  (setq auto-package-update-hide-results t)
+  (auto-package-update-maybe))
+
+(use-package lsp-mode
+  :hook
+  (c-mode . lsp)
+  (c++mode . lsp))
+
+(use-package company-lsp
+  :config
+  (push 'company-lsp company-backends))
+
+(use-package lsp-ui
+  :hook (lsp-mode . lsp-ui-mode))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -66,6 +55,9 @@ There are two things you can do about this warning:
  '(custom-safe-themes
    (quote
     ("2925ed246fb757da0e8784ecf03b9523bccd8b7996464e587b081037e0e98001" default)))
+ '(git-gutter:added-sign " ")
+ '(git-gutter:deleted-sign " ")
+ '(git-gutter:modified-sign " ")
  '(lsp-prefer-flymake nil)
  '(package-selected-packages
    (quote
@@ -98,21 +90,21 @@ There are two things you can do about this warning:
 
 (load-file "~/.emacs.d/treemacs_cfg.el")
 
-(require 'column-enforce-mode)
-(setq column-enforce-column 120)
-(add-hook 'c-mode-hook 'column-enforce-mode)
+;; Highlight symbols after certain column
+(use-package column-enforce-mode
+  :config
+  (setq column-enforce-column 120)
+  :hook (c-mode c++-mode))
 
 ;; Show git changes in gutter
-(require 'git-gutter)
-(global-git-gutter-mode t)
+(use-package git-gutter
+  :config
+  (global-git-gutter-mode t))
 
-(custom-set-variables
- '(git-gutter:modified-sign " ") 
- '(git-gutter:added-sign " ")    
- '(git-gutter:deleted-sign " "))
-
-(require 'buffer-move)
-(global-set-key (kbd "<C-S-up>")     'buf-move-up)
-(global-set-key (kbd "<C-S-down>")   'buf-move-down)
-(global-set-key (kbd "<C-S-left>")   'buf-move-left)
-(global-set-key (kbd "<C-S-right>")  'buf-move-right)
+;; Switch buffers
+(use-package buffer-move
+  :bind
+  ("<C-S-up>"    . buf-move-up)
+  ("<C-S-down>"  . buf-move-down)
+  ("<C-S-left>"  . buf-move-left)
+  ("<C-S-right>" . buf-move-right))
