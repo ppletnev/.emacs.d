@@ -45,6 +45,7 @@
   (c++mode . lsp))
 
 (use-package company-lsp
+  :after lsp-mode
   :config
   (push 'company-lsp company-backends))
 
@@ -67,7 +68,7 @@
  '(lsp-prefer-flymake nil)
  '(package-selected-packages
    (quote
-    (column-enforce-mode magit treemacs-magit treemacs-icons-dired treemacs-projectile treemacs-evil treemacs use-package lsp-ui company-lsp hydra)))
+    (column-enforce-mode magit treemacs-magit treemacs-icons-dired treemacs-projectile treemacs-evil treemacs use-package lsp-ui hydra)))
  '(show-paren-mode t))
 
 (if (eq system-type 'darwin)
