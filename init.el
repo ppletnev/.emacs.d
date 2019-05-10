@@ -141,3 +141,10 @@
 
   (advice-add 'move-text-up :after 'indent-region-advice)
   (advice-add 'move-text-down :after 'indent-region-advice))
+
+(use-package avy
+  :bind
+  ("C-;"   . avy-goto-char)
+  ("C-'"   . avy-goto-char-2)
+  ("M-g f" . avy-goto-line))
+  
