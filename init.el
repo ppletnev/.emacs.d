@@ -68,7 +68,7 @@
  '(lsp-prefer-flymake nil)
  '(package-selected-packages
    (quote
-    (multiple-cursors column-enforce-mode magit treemacs-magit treemacs-icons-dired treemacs-projectile treemacs-evil treemacs use-package lsp-ui hydra)))
+    (restclient multiple-cursors column-enforce-mode magit treemacs-magit treemacs-icons-dired treemacs-projectile treemacs-evil treemacs use-package lsp-ui hydra)))
  '(show-paren-mode t))
 
 (if (eq system-type 'darwin)
@@ -123,3 +123,6 @@
 (use-package multiple-cursors
   :bind
   ("C-S-c C-S-c" . mc/edit-lines))
+
+;; Package for interactive REST API testing
+(use-package restclient)
