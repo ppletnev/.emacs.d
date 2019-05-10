@@ -128,4 +128,16 @@
 (use-package restclient)
 
 (use-package move-text
-  :config (move-text-default-bindings))
+  :config
+  (move-text-default-bindings)
+
+  ;; Auto-indent when moving
+  (defun indent-region-advice (&rest ignored)
+  (let ((deactivate deactivate-mark))
+    (if (region-active-p)
+        (indent-region (region-beginning) (region-end))
+      (indent-region (line-beginning-position) (line-end-position)))
+    (setq deactivate-mark deactivate)))
+
+  (advice-add 'move-text-up :after 'indent-region-advice)
+  (advice-add 'move-text-down :after 'indent-region-advice))
