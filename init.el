@@ -66,6 +66,8 @@
  '(git-gutter:deleted-sign " ")
  '(git-gutter:modified-sign " ")
  '(lsp-prefer-flymake nil)
+ '(mac-command-modifier (quote control))
+ '(mac-option-modifier (quote meta))
  '(package-selected-packages
    (quote
     (move-text restclient multiple-cursors column-enforce-mode magit treemacs-magit treemacs-icons-dired treemacs-projectile treemacs-evil treemacs use-package lsp-ui hydra)))
