@@ -6,3 +6,5 @@ history
 init.el~
 .vscode
 elpa/
+transient/
+url/
