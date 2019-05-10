@@ -101,3 +101,12 @@ There are two things you can do about this warning:
 (require 'column-enforce-mode)
 (setq column-enforce-column 120)
 (add-hook 'c-mode-hook 'column-enforce-mode)
+
+;; Show git changes in gutter
+(require 'git-gutter)
+(global-git-gutter-mode t)
+
+(custom-set-variables
+ '(git-gutter:modified-sign " ") 
+ '(git-gutter:added-sign " ")    
+ '(git-gutter:deleted-sign " "))
