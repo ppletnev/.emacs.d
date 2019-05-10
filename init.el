@@ -110,3 +110,9 @@ There are two things you can do about this warning:
  '(git-gutter:modified-sign " ") 
  '(git-gutter:added-sign " ")    
  '(git-gutter:deleted-sign " "))
+
+(require 'buffer-move)
+(global-set-key (kbd "<C-S-up>")     'buf-move-up)
+(global-set-key (kbd "<C-S-down>")   'buf-move-down)
+(global-set-key (kbd "<C-S-left>")   'buf-move-left)
+(global-set-key (kbd "<C-S-right>")  'buf-move-right)
