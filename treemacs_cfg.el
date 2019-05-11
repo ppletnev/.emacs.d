@@ -1,6 +1,7 @@
 ;; Treemacs package load and configuration
 
 (use-package treemacs
+  :after cl-lib dash s f ace-window pfuture hydra ht
   :ensure t
   :defer t
   :init
