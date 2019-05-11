@@ -1,0 +1,3 @@
+[submodule "packages/multiple-cursors.el"]
+	path = packages/multiple-cursors.el
+	url = https://github.com/ppletnev/multiple-cursors.el
