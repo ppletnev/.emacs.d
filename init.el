@@ -155,3 +155,7 @@
   ("C-'"   . avy-goto-char-2)
   ("M-g f" . avy-goto-line))
   
+;; Expand selection
+(use-package expand-region
+  :bind
+  ("C-=" . er/expand-region))
