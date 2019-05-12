@@ -154,6 +154,11 @@
   ("C-'"   . avy-goto-char-2)
   ("M-g f" . avy-goto-line))
   
+;; Parens magic
+(use-package smartparens
+  :config
+  (smartparens-global-mode t))
+
 ;; Expand selection
 (use-package expand-region
   :bind
