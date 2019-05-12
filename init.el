@@ -107,6 +107,9 @@
 ;; Settings for C language
 (load-file "~/.emacs.d/c_lang.el")
 
+;; Org-mode settings
+(load-file "~/.emacs.d/cfg_org.el")
+
 ;; Highlight symbols after certain column
 (use-package column-enforce-mode
   :config
