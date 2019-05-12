@@ -7,6 +7,10 @@
 
 (setq-default cursor-type 'bar)
 
+;; No tabs
+(setq-default indent-tabs-mode nil)
+
+;; Move between windows with shift-arrows
 (windmove-default-keybindings)
 
 ;; Load additional packages from .emacs.d/
@@ -90,7 +94,7 @@
       ("\\<\\([0-9]+\\.[0-9]*[fF]?\\)\\>" 1 font-lock-constant-face keep) ;; float constants
       ("\\<\\(0b[01]+\\(?:U\\|UL\\|L\\|ULL\\|LL\\)?\\)\\>" 1 font-lock-constant-face keep) ;; binary constants
       ("\\<\\(0x[0-9A-F]+\\(?:U\\|UL\\|L\\|ULL\\|LL\\)?\\)\\>" 1 font-lock-constant-face keep) ;; hex constants
-      ("\\<\\(\\[0-9]+\\(?:U\\|UL\\|L\\|ULL\\|LL\\)?\\)\\>" 1 font-lock-constant-face keep) ;; numeric constants
+      ("\\<\\([0-9]+\\(?:U\\|UL\\|L\\|ULL\\|LL\\)?\\)\\>" 1 font-lock-constant-face keep) ;; numeric constants
       ("\\<\\(if\\|switch\\|return\\|for\\|while\\|sizeof\\)\\>" 1 font-lock-keyword-face keep)
       ("\\<\\([_a-zA-Z][_a-zA-Z0-9]*\\)\\>\\s *(" 1 font-lock-function-name-face keep)
       ("\\(+\\|-\\|=\\|&\\||\\|%\\|*\\|!\\|>\\|<\\|~\\|\\^\\|/\\|\\.\\|?\\|:\\)" 1 font-lock-keyword-face keep)
@@ -99,6 +103,9 @@
 (savehist-mode 1)
 
 (load-file "~/.emacs.d/treemacs_cfg.el")
+
+;; Settings for C language
+(load-file "~/.emacs.d/c_lang.el")
 
 ;; Highlight symbols after certain column
 (use-package column-enforce-mode
@@ -136,18 +143,7 @@
 
 (use-package move-text
   :config
-  (move-text-default-bindings)
-
-  ;; Auto-indent when moving
-  (defun indent-region-advice (&rest ignored)
-  (let ((deactivate deactivate-mark))
-    (if (region-active-p)
-        (indent-region (region-beginning) (region-end))
-      (indent-region (line-beginning-position) (line-end-position)))
-    (setq deactivate-mark deactivate)))
-
-  (advice-add 'move-text-up :after 'indent-region-advice)
-  (advice-add 'move-text-down :after 'indent-region-advice))
+  (move-text-default-bindings))
 
 (use-package avy
   :bind
