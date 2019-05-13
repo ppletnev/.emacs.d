@@ -55,12 +55,15 @@
 (use-package lsp-mode
   :hook
   (c-mode . lsp)
-  (c++mode . lsp))
+  (c++mode . lsp)
+  :config
+  (setq lsp-enable-snippet nil))
 
 (use-package company-lsp
   :after lsp-mode
   :config
-  (push 'company-lsp company-backends))
+  (push 'company-lsp company-backends)
+  (setq company-lsp-enable-snippet nil))
 
 (use-package lsp-ui
   :hook (lsp-mode . lsp-ui-mode))
