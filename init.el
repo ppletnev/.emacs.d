@@ -5,8 +5,14 @@
 ;; You may delete these explanatory comments.
 (package-initialize)
 
+;; For faster rendering on Windows. Fuck Windows.
 (setq inhibit-compacting-font-caches t)
+
+;; Smooth scrolling on Windows
 (setq auto-window-vscroll nil)
+(setq scroll-step 1)
+(setq scroll-conservatively 10000)
+
 
 (setq-default cursor-type 'bar)
 
