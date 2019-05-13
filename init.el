@@ -86,9 +86,17 @@
     (yasnippet markdown-mode spinner ht dash-functional f expand-region smartparens move-text restclient column-enforce-mode magit treemacs-magit treemacs-icons-dired treemacs-projectile treemacs-evil treemacs use-package lsp-ui hydra)))
  '(show-paren-mode t))
 
+
+;; Windows
+(if (eq system-type 'windows-nt)
+    ((set-default-font "Consolas 11")
+     (setq explicit-shell-file-name "C:/cygwin/bin/bash.exe")
+     (setq shell-file-name explicit-shell-file-name)
+     (add-to-list 'exec-path "C:/cygwin/bin")))
+
+;; OS X
 (if (eq system-type 'darwin)
-  (set-default-font "Consolas 14") ; OS X
-  (set-default-font "Consolas 12") ; Others
+  (set-default-font "Consolas 14")
 )
 
 (setq lsp-clients-clangd-executable "/usr/local/Cellar/llvm/8.0.0/bin/clangd")
