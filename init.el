@@ -5,6 +5,9 @@
 ;; You may delete these explanatory comments.
 (package-initialize)
 
+(setq inhibit-compacting-font-caches t)
+(setq auto-window-vscroll nil)
+
 (setq-default cursor-type 'bar)
 
 ;; No tabs
