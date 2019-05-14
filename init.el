@@ -92,14 +92,14 @@
 
 ;; Windows
 (if (eq system-type 'windows-nt)
-    ((set-default-font "Consolas 11")
-     (setq explicit-shell-file-name "C:/cygwin/bin/bash.exe")
+    (progn (set-frame-font "Consolas 11" nil t)
+     (setq explicit-shell-file-name "C:/cygwin64/bin/bash.exe")
      (setq shell-file-name explicit-shell-file-name)
-     (add-to-list 'exec-path "C:/cygwin/bin")))
+     (add-to-list 'exec-path "C:/cygwin64/bin")))
 
 ;; OS X
 (if (eq system-type 'darwin)
-  (set-default-font "Consolas 14")
+  (set-frame-font "Consolas 14" nil t)
 )
 
 (setq lsp-clients-clangd-executable "/usr/local/Cellar/llvm/8.0.0/bin/clangd")
