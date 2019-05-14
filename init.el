@@ -92,10 +92,8 @@
 
 ;; Windows
 (if (eq system-type 'windows-nt)
-    (progn (set-frame-font "Consolas 11" nil t)
-     (setq explicit-shell-file-name "C:/cygwin64/bin/bash.exe")
-     (setq shell-file-name explicit-shell-file-name)
-     (add-to-list 'exec-path "C:/cygwin64/bin")))
+    (progn (set-frame-font "Consolas 11" nil t))
+)
 
 ;; OS X
 (if (eq system-type 'darwin)
