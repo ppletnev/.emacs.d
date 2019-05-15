@@ -191,6 +191,8 @@
   :hook
   (prog-mode . rainbow-delimiters-mode))
 
-(use-package yascroll
-  :config
-  (global-yascroll-bar-mode 1))
+;; Remove tool bar
+(tool-bar-mode -1)
+
+;; Remove cygwin warnings in Windows
+(setenv "CYGWIN" "nodosfilewarning")
