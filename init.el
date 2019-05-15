@@ -81,7 +81,7 @@
  '(mac-option-modifier (quote meta))
  '(package-selected-packages
    (quote
-    (yascroll rainbow-delimiters zoom yasnippet markdown-mode spinner ht dash-functional f expand-region smartparens move-text restclient column-enforce-mode magit treemacs-magit treemacs-icons-dired treemacs-projectile treemacs-evil treemacs use-package lsp-ui hydra)))
+    (modalka yascroll rainbow-delimiters zoom yasnippet markdown-mode spinner ht dash-functional f expand-region smartparens move-text restclient column-enforce-mode magit treemacs-magit treemacs-icons-dired treemacs-projectile treemacs-evil treemacs use-package lsp-ui hydra)))
  '(show-paren-mode t))
 
 
@@ -196,3 +196,45 @@
 
 ;; Remove cygwin warnings in Windows
 (setenv "CYGWIN" "nodosfilewarning")
+
+(use-package modalka
+  :after key-chord
+  :config
+  (key-chord-define-global ",." 'modalka-mode)
+  (modalka-define-kbd "W" "M-w")
+  (modalka-define-kbd "Y" "M-y")
+  (modalka-define-kbd "a" "C-a")
+  (modalka-define-kbd "b" "C-b")
+  (modalka-define-kbd "B" "M-b")
+  (modalka-define-kbd "e" "C-e")
+  (modalka-define-kbd "f" "C-f")
+  (modalka-define-kbd "F" "M-f")
+  (modalka-define-kbd "g" "C-g")
+  (modalka-define-kbd "n" "C-n")
+  (modalka-define-kbd "p" "C-p")
+  (modalka-define-kbd "w" "C-w")
+  (modalka-define-kbd "k" "C-k")
+  (modalka-define-kbd "y" "C-y")
+  (modalka-define-kbd ";" "C-;")
+  (modalka-define-kbd "'" "C-'")
+  (modalka-define-kbd "v" "C-v")
+  (modalka-define-kbd "V" "M-v")
+  (modalka-define-kbd "l" "C-l")
+  (modalka-define-kbd "s" "C-s")
+  (modalka-define-kbd "S" "M-s")
+  (modalka-define-kbd "=" "C-=")
+  (modalka-define-kbd "/" "C-/")
+  (modalka-define-kbd "SPC" "C-SPC"))
+
+(use-package key-chord
+  :config
+  (key-chord-mode 1)
+  (setq key-chord-two-keys-delay 0.05)
+  (setq key-chord-one-key-delay 0.0)
+  (key-chord-define-global "xc" (kbd "C-w C-y"))
+  (key-chord-define-global "sx" (kbd "C-a C-k C-y"))
+  (key-chord-define-global "zx" (kbd "C-a C-k C-k"))
+  (key-chord-define-global "gb" 'avy-goto-line)
+  (key-chord-define-global "dc" (kbd "C-a C-SPC C-n M-w C-y C-p C-e"))
+  (key-chord-define-global "as" (kbd "C-x C-s"))
+  )
