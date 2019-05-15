@@ -8,11 +8,6 @@
 ;; For faster rendering on Windows. Fuck Windows.
 (setq inhibit-compacting-font-caches t)
 
-;; Smooth scrolling on Windows
-(setq auto-window-vscroll nil)
-(setq scroll-step 1)
-(setq scroll-conservatively 10000)
-
 
 (setq-default cursor-type 'bar)
 
@@ -99,6 +94,13 @@
 (if (eq system-type 'darwin)
   (set-frame-font "Consolas 14" nil t)
 )
+
+;; Smooth scrolling on Windows
+(setq auto-window-vscroll nil)
+(setq scroll-step 1)
+(setq scroll-conservatively 10000)
+(setq mouse-wheel-scroll-amount '(3))
+(setq mouse-wheel-progressive-speed nil)
 
 (setq lsp-clients-clangd-executable "/usr/local/Cellar/llvm/8.0.0/bin/clangd")
 
