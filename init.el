@@ -168,8 +168,9 @@
 (use-package restclient)
 
 (use-package move-text
-  :config
-  (move-text-default-bindings))
+  :bind
+  ("M-S-<up>" . move-text-up)
+  ("M-S-<down>" . move-text-down))
 
 (use-package avy
   :bind
