@@ -176,7 +176,12 @@
   ("C-;"   . avy-goto-char)
   ("C-'"   . avy-goto-char-2)
   ("M-g f" . avy-goto-line))
-  
+
+(defun avy-go-after-char (c)
+    (interactive "cchar:")
+    (avy-goto-char c)
+    (forward-char))
+
 ;; Parens magic
 (use-package smartparens
   :config
@@ -231,6 +236,8 @@
   (key-chord-mode 1)
   (setq key-chord-two-keys-delay 0.05)
   (setq key-chord-one-key-delay 0.0)
+  (key-chord-define-global "l;" 'avy-goto-char)
+  (key-chord-define-global ";'" 'avy-go-after-char)
   (key-chord-define-global "xc" (kbd "C-w C-y"))
   (key-chord-define-global "sx" (kbd "C-a C-k C-y"))
   (key-chord-define-global "zx" (kbd "C-a C-k C-k"))
