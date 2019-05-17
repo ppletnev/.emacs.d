@@ -8,6 +8,12 @@
 ;; For faster rendering on Windows. Fuck Windows.
 (setq inhibit-compacting-font-caches t)
 
+;; Disable scroll bar
+(scroll-bar-mode -1)
+
+;; Start maximized
+;;(add-to-list 'default-frame-alist '(fullscreen . maximized))
+(add-hook 'window-setup-hook 'toggle-frame-fullscreen t)
 
 (setq-default cursor-type 'bar)
 
