@@ -14,6 +14,9 @@
 ;; No tabs
 (setq-default indent-tabs-mode nil)
 
+;; Define tab stop at ever 4'th column
+(setq tab-stop-list (number-sequence 4 120 4))
+
 ;; Move between windows with shift-arrows
 (windmove-default-keybindings)
 
@@ -206,7 +209,7 @@
 (use-package modalka
   :after key-chord
   :config
-  (key-chord-define-global ",." 'modalka-mode)
+  ;;(key-chord-define-global ",." 'modalka-mode)
   (modalka-define-kbd "W" "M-w")
   (modalka-define-kbd "Y" "M-y")
   (modalka-define-kbd "a" "C-a")
