@@ -255,3 +255,8 @@
   (key-chord-define-global "dc" (kbd "C-a C-SPC C-n M-w C-y C-p C-e"))
   (key-chord-define-global "as" (kbd "C-x C-s"))
   )
+
+(use-package projectile
+  :config
+  (projectile-mode +1)
+  (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map))

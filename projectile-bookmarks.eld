@@ -1,0 +1,1 @@
+("~/proj1131_gss_das_supp02_test/" "~/.emacs.d/")
