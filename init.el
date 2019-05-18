@@ -14,6 +14,11 @@
 ;; Replace selection by typing
 (delete-selection-mode 1)
 
+;; Auto-update buffers when they were modified externally
+(global-auto-revert-mode t)
+;; Auto-refresh dired on file change
+(add-hook 'dired-mode-hook 'auto-revert-mode)
+
 ;; Start maximized
 ;;(add-to-list 'default-frame-alist '(fullscreen . maximized))
 (add-hook 'window-setup-hook 'toggle-frame-fullscreen t)
