@@ -18,6 +18,8 @@
 (global-auto-revert-mode t)
 ;; Auto-refresh dired on file change
 (add-hook 'dired-mode-hook 'auto-revert-mode)
+;; Auto-update remote files
+(setq auto-revert-remote-files t)
 
 ;; Start maximized
 ;;(add-to-list 'default-frame-alist '(fullscreen . maximized))
