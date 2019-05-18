@@ -11,6 +11,9 @@
 ;; Disable scroll bar
 (scroll-bar-mode -1)
 
+;; Replace selection by typing
+(delete-selection-mode 1)
+
 ;; Start maximized
 ;;(add-to-list 'default-frame-alist '(fullscreen . maximized))
 (add-hook 'window-setup-hook 'toggle-frame-fullscreen t)
