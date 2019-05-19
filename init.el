@@ -142,6 +142,9 @@
 ;; Org-mode settings
 (load-file "~/.emacs.d/cfg_org.el")
 
+;; Macros
+(load-file "~/.emacs.d/macros.el")
+
 ;; Highlight symbols after certain column
 (use-package column-enforce-mode
   :config
