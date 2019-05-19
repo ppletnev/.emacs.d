@@ -1,9 +1,7 @@
 
-;; Added by Package.el.  This must come before configurations of
-;; installed packages.  Don't delete this line.  If you don't want it,
-;; just comment it out by adding a semicolon to the start of the line.
-;; You may delete these explanatory comments.
-(package-initialize)
+;; Keep Custom settings in a separate file
+(setq custom-file "~/.emacs.d/custom.el")
+(load custom-file)
 
 ;; For faster rendering on Windows. Fuck Windows.
 (setq inhibit-compacting-font-caches t)
@@ -81,28 +79,6 @@
 
 (use-package lsp-ui
   :hook (lsp-mode . lsp-ui-mode))
-
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(column-number-mode t)
- '(custom-enabled-themes (quote (monokai)))
- '(custom-safe-themes
-   (quote
-    ("2925ed246fb757da0e8784ecf03b9523bccd8b7996464e587b081037e0e98001" default)))
- '(git-gutter:added-sign " ")
- '(git-gutter:deleted-sign " ")
- '(git-gutter:modified-sign " ")
- '(lsp-prefer-flymake nil)
- '(mac-command-modifier (quote control))
- '(mac-option-modifier (quote meta))
- '(package-selected-packages
-   (quote
-    (modalka yascroll rainbow-delimiters zoom yasnippet markdown-mode spinner ht dash-functional f expand-region smartparens move-text restclient column-enforce-mode magit treemacs-magit treemacs-icons-dired treemacs-projectile treemacs-evil treemacs use-package lsp-ui hydra)))
- '(show-paren-mode t))
-
 
 ;; Windows
 (if (eq system-type 'windows-nt)
