@@ -4,3 +4,7 @@
 (setq org-log-done t)
 
 (setq org-agenda-files (list "~/org/tickets.org"))
+
+(use-package org-bullets
+  :hook
+  (org-mode . org-bullets-mode))
