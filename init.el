@@ -9,6 +9,23 @@
 ;; Disable scroll bar
 (scroll-bar-mode -1)
 
+(setcdr (assq 'vc-mode mode-line-format)
+        '((:eval (replace-regexp-in-string "^ Git.*$" " " vc-mode))))
+
+(defface egoge-display-time
+  '((((type x w32 mac))
+     (:foreground "#FD971F" :inherit bold))
+    (((type tty))
+     (:foreground "orange")))
+  "Face used to display the time in the mode line.")
+
+;; This causes the current time in the mode line to be displayed in
+;; `egoge-display-time-face' to make it stand out visually.
+(setq display-time-string-forms
+      '((propertize (concat " " 24-hours ":" minutes " ")
+ 		    'face 'egoge-display-time)))
+(display-time-mode 1)
+
 ;; Replace selection by typing
 (delete-selection-mode 1)
 
@@ -246,6 +263,11 @@
   :config
   (projectile-mode +1)
   (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map))
+
+(use-package rich-minority
+  :config
+  (rich-minority-mode 1)
+  (setq rm-whitelist '("projectile")))
 
 (defun kb-scroll-up-hold-cursor ()
   "Scroll up one position in file."
