@@ -246,3 +246,28 @@
   :config
   (projectile-mode +1)
   (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map))
+
+(defun kb-scroll-up-hold-cursor ()
+  "Scroll up one position in file."
+  (interactive)
+  (scroll-up-command 1))
+
+(defun kb-scroll-down-hold-cursor ()
+  "Scroll down one position in file."
+  (interactive)
+  (scroll-up-command -1))
+
+(defun kb-scroll-up ()
+  "Scroll up one position in file, move cursor with the scroll."
+  (interactive)
+  (scroll-up-command -1)
+  (forward-line -1))
+
+(defun kb-scroll-down ()
+  "Scroll down one position in file, move cursor with the scroll."
+  (interactive)
+  (scroll-up-command 1)
+  (forward-line 1))
+
+(bind-key (kbd "M-p") 'kb-scroll-up)
+(bind-key (kbd "M-n") 'kb-scroll-down)
