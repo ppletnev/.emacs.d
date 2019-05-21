@@ -19,7 +19,7 @@
  '(mac-option-modifier (quote meta))
  '(package-selected-packages
    (quote
-    (org-bullets jabber sml projectile-ripgrep diminish rich-minority modalka yascroll rainbow-delimiters zoom yasnippet markdown-mode spinner ht dash-functional f expand-region smartparens move-text restclient column-enforce-mode magit treemacs-magit treemacs-icons-dired treemacs-projectile treemacs-evil treemacs use-package lsp-ui hydra)))
+    (symbol-overlay org-bullets jabber sml projectile-ripgrep diminish rich-minority modalka yascroll rainbow-delimiters zoom yasnippet markdown-mode spinner ht dash-functional f expand-region smartparens move-text restclient column-enforce-mode magit treemacs-magit treemacs-icons-dired treemacs-projectile treemacs-evil treemacs use-package lsp-ui hydra)))
  '(show-paren-mode t))
 
 (custom-set-faces

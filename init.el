@@ -300,3 +300,14 @@
 
 (bind-key (kbd "M-p") 'kb-scroll-up)
 (bind-key (kbd "M-n") 'kb-scroll-down)
+
+(use-package symbol-overlay
+  :load-path "~/.emacs.d/packages/symbol-overlay"
+  :hook
+  (prog-mode . symbol-overlay-mode)
+  :bind
+  ("M-i" . symbol-overlay-put)
+  ("<f7>" . symbol-overlay-mode)
+  ("<f8>" . symbol-overlay-remove-all))
+
+(setq default-text-properties '(line-height 1.15))
