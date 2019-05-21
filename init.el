@@ -3,6 +3,9 @@
 (setq custom-file "~/.emacs.d/custom.el")
 (load custom-file)
 
+;; Auto-save files
+(auto-save-visited-mode 1)
+
 ;; For faster rendering on Windows. Fuck Windows.
 (setq inhibit-compacting-font-caches t)
 
@@ -22,7 +25,7 @@
 ;; This causes the current time in the mode line to be displayed in
 ;; `egoge-display-time-face' to make it stand out visually.
 (setq display-time-string-forms
-      '((propertize (concat " " 24-hours ":" minutes " ")
+      '((propertize (concat " [" 24-hours ":" minutes "] ")
  		    'face 'egoge-display-time)))
 (display-time-mode 1)
 
