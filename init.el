@@ -303,8 +303,8 @@
 
 (use-package symbol-overlay
   :load-path "~/.emacs.d/packages/symbol-overlay"
-  :hook
-  (prog-mode . symbol-overlay-mode)
+  ;;:hook
+  ;;(prog-mode . symbol-overlay-mode)
   :bind
   ("M-i" . symbol-overlay-put)
   ("<f7>" . symbol-overlay-mode)
