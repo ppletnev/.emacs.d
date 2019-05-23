@@ -17,9 +17,10 @@
  '(lsp-prefer-flymake nil)
  '(mac-command-modifier (quote super))
  '(mac-option-modifier (quote meta))
+ '(org-agenda-files nil)
  '(package-selected-packages
    (quote
-    (symbol-overlay org-bullets jabber sml projectile-ripgrep diminish rich-minority modalka yascroll rainbow-delimiters zoom yasnippet markdown-mode spinner ht dash-functional f expand-region smartparens move-text restclient column-enforce-mode magit treemacs-magit treemacs-icons-dired treemacs-projectile treemacs-evil treemacs use-package lsp-ui hydra)))
+    (impatient-mode flymd symbol-overlay org-bullets jabber sml projectile-ripgrep diminish rich-minority modalka yascroll rainbow-delimiters zoom yasnippet markdown-mode spinner ht dash-functional f expand-region smartparens move-text restclient column-enforce-mode magit treemacs-magit treemacs-icons-dired treemacs-projectile treemacs-evil treemacs use-package lsp-ui hydra)))
  '(show-paren-mode t))
 
 (custom-set-faces
