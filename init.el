@@ -12,9 +12,6 @@
 ;; Disable scroll bar
 (scroll-bar-mode -1)
 
-(setcdr (assq 'vc-mode mode-line-format)
-        '((:eval (replace-regexp-in-string "^ Git.*$" " " vc-mode))))
-
 (defface egoge-display-time
   '((((type x w32 mac))
      (:foreground "#FD971F" :inherit bold))
@@ -321,3 +318,15 @@
   (princ (with-current-buffer buffer
     (format "<!DOCTYPE html><html><title>Impatient Markdown</title><xmp theme=\"united\" style=\"display:none;\"> %s  </xmp><script src=\"http://strapdownjs.com/v/0.2/strapdown.js\"></script></html>" (buffer-substring-no-properties (point-min) (point-max))))
   (current-buffer)))
+
+;; (use-package all-the-icons)
+
+(use-package doom-modeline
+  :load-path "~/.emacs.d/packages/doom-modeline"
+  :hook (after-init . doom-modeline-mode)
+  :config
+  (setq doom-modeline-icon nil)
+  (setq doom-modeline-height 0)
+  (setq doom-modeline-vcs-max-length 30)
+  (setq doom-modeline-buffer-file-name-style 'buffer-name)
+  (setq find-file-visit-truename t))
