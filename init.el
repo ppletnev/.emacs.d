@@ -336,3 +336,12 @@
   (setq doom-modeline-vcs-max-length 30)
   (setq doom-modeline-buffer-file-name-style 'buffer-name)
   (setq find-file-visit-truename t))
+
+;; Use Flycheck
+(use-package flycheck
+  :bind
+  ("C-M-=" . flycheck-buffer)
+  :hook
+  (after-init . global-flycheck-mode)
+  :config
+  (setq flycheck-checker-error-threshold 2000))
