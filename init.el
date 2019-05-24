@@ -345,3 +345,7 @@
   (after-init . global-flycheck-mode)
   :config
   (setq flycheck-checker-error-threshold 2000))
+
+(use-package nyan-mode
+  :config
+  (nyan-mode 1))
