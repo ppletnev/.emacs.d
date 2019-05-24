@@ -40,6 +40,10 @@
 ;;(add-to-list 'default-frame-alist '(fullscreen . maximized))
 (add-hook 'window-setup-hook 'toggle-frame-fullscreen t)
 
+;; Highlight current line
+(global-hl-line-mode 1)
+(set-face-background hl-line-face "gray20")
+
 (setq-default cursor-type 'bar)
 
 ;; No tabs
