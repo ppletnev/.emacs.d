@@ -83,9 +83,9 @@
   (auto-package-update-maybe))
 
 (use-package lsp-mode
-  :hook
-  (c-mode . lsp)
-  (c++mode . lsp)
+  ;; :hook
+  ;; (c-mode . lsp)
+  ;; (c++mode . lsp)
   :config
   (setq lsp-enable-snippet nil))
 
@@ -341,8 +341,6 @@
 (use-package flycheck
   :bind
   ("C-M-=" . flycheck-buffer)
-  :hook
-  (after-init . global-flycheck-mode)
   :config
   (setq flycheck-checker-error-threshold 2000))
 
