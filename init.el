@@ -347,3 +347,13 @@
 (use-package nyan-mode
   :config
   (nyan-mode 1))
+
+(use-package magit
+  :bind
+  ("C-x g" . magit-status))
+
+(use-package ivy
+  :config
+  (ivy-mode 1)
+  (setq ivy-use-virtual-buffers t)
+  (setq ivy-count-format "(%d/%d) "))
