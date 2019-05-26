@@ -1,7 +1,11 @@
 (require 'dash)
 (require 's)
 
+;; Do not wrap long lines, just hide continuations
 (add-hook 'eshell-mode-hook 'toggle-truncate-lines)
+
+;; Scroll to prompt on input, helps with large outputs
+(setq eshell-scroll-to-bottom-on-input t)
 
 (defmacro with-face (STR &rest PROPS)
   "Return STR propertized with PROPS."
