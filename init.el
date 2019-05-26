@@ -59,10 +59,10 @@
 (add-to-list 'package-archives
              '("melpa" . "https://melpa.org/packages/") t)
 (package-initialize)
+(package-refresh-contents)
 
 ;; Ensure that use-package is loaded
 (unless (package-installed-p 'use-package)
-  (package-refresh-contents)
   (package-initialize)
   (package-install 'use-package))
 
