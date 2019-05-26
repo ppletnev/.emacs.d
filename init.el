@@ -82,6 +82,8 @@
   (setq auto-package-update-hide-results t)
   (auto-package-update-maybe))
 
+(use-package all-the-icons)
+
 (use-package lsp-mode
   ;; :hook
   ;; (c-mode . lsp)
@@ -145,6 +147,9 @@
 
 ;; Macros
 (load-file "~/.emacs.d/macros.el")
+
+;; Shell
+(load-file "~/.emacs.d/lisp/shell.el")
 
 ;; Highlight symbols after certain column
 (use-package column-enforce-mode
@@ -323,7 +328,6 @@
     (format "<!DOCTYPE html><html><title>Impatient Markdown</title><xmp theme=\"united\" style=\"display:none;\"> %s  </xmp><script src=\"http://strapdownjs.com/v/0.2/strapdown.js\"></script></html>" (buffer-substring-no-properties (point-min) (point-max))))
   (current-buffer)))
 
-(use-package all-the-icons)
 (use-package shrink-path)
 
 (use-package doom-modeline
