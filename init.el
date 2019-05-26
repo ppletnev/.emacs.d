@@ -52,9 +52,6 @@
 ;; Define tab stop at ever 4'th column
 (setq tab-stop-list (number-sequence 4 120 4))
 
-;; Move between windows with shift-arrows
-(windmove-default-keybindings)
-
 ;; Load additional packages from .emacs.d/
 (add-to-list 'load-path "~/.emacs.d/packages/")
 
@@ -83,6 +80,14 @@
   (auto-package-update-maybe))
 
 (use-package all-the-icons)
+
+;; Move between windows with shift-arrows
+(windmove-default-keybindings)
+;; Move between frames just like between windows
+(use-package framemove
+  :load-path "~/.emacs.d/packages/framemove"
+  :config
+  (setq framemove-hook-into-windmove t))
 
 (use-package lsp-mode
   ;; :hook
