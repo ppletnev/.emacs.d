@@ -1,6 +1,8 @@
 (require 'dash)
 (require 's)
 
+(add-hook 'eshell-mode-hook 'toggle-truncate-lines)
+
 (defmacro with-face (STR &rest PROPS)
   "Return STR propertized with PROPS."
   `(propertize ,STR 'face (list ,@PROPS)))
