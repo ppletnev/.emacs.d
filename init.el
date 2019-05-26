@@ -22,7 +22,7 @@
 ;; This causes the current time in the mode line to be displayed in
 ;; `egoge-display-time-face' to make it stand out visually.
 (setq display-time-string-forms
-      '((propertize (concat " [" 24-hours ":" minutes "] ")
+      '((propertize (concat "\xf017 " 24-hours ":" minutes "")
  		    'face 'egoge-display-time)))
 (display-time-mode 1)
 
