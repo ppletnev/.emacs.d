@@ -3,7 +3,7 @@
 auto-save-list/
 history
 .cache/
-init.el~
+*~
 .vscode
 elpa/
 transient/
