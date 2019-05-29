@@ -22,8 +22,10 @@
 ;; This causes the current time in the mode line to be displayed in
 ;; `egoge-display-time-face' to make it stand out visually.
 (setq display-time-string-forms
-      '((propertize (concat "\xf017 " 24-hours ":" minutes "")
- 		    'face 'egoge-display-time)))
+      '((concat
+         (propertize "\xf017" 'face '(:foreground "#FD971F" :family "FontAwesome"))
+         (propertize (concat " " 24-hours ":" minutes " | week" (format-time-string "%y%V"))
+                     'face 'egoge-display-time))))
 (display-time-mode 1)
 
 ;; Replace selection by typing
@@ -79,7 +81,9 @@
   (setq auto-package-update-hide-results t)
   (auto-package-update-maybe))
 
-(use-package all-the-icons)
+(load-library "~/.emacs.d/font-lock+")
+(require 'font-lock+)
+(require 'all-the-icons)
 
 ;; Move between windows with shift-arrows
 (windmove-default-keybindings)
