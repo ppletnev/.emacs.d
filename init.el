@@ -81,9 +81,7 @@
   (setq auto-package-update-hide-results t)
   (auto-package-update-maybe))
 
-(load-library "~/.emacs.d/font-lock+")
-(require 'font-lock+)
-(require 'all-the-icons)
+(use-package all-the-icons)
 
 ;; Move between windows with shift-arrows
 (windmove-default-keybindings)
