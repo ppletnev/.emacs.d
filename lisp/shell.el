@@ -4,7 +4,8 @@
 ;; Do not wrap long lines, just hide continuations
 (add-hook 'eshell-mode-hook 'toggle-truncate-lines)
 
-(setq eshell-directory-name "~")
+;; Make HOME a default directory on startup
+(cd "~")
 
 ;; Scroll to prompt on input, helps with large outputs
 (setq eshell-scroll-to-bottom-on-input t)
@@ -13,13 +14,10 @@
   "Return STR propertized with PROPS."
   `(propertize ,STR 'face (list ,@PROPS)))
 
-(defmacro esh-section (NAME ICON FORM &rest PROPS)
+(defmacro esh-section (NAME ICON ICON-FAMILY FORM &rest PROPS)
   "Build eshell section NAME with ICON prepended to evaled FORM with PROPS."
-  `(setq ,NAME
-         (lambda () (when ,FORM
-                      (-> ,ICON
-                          (concat esh-section-delim ,FORM)
-                          (with-face ,@PROPS))))))
+  `(setq ,NAME (lambda () (concat (propertize ,ICON 'face '(list ,@PROPS :family ,ICON-FAMILY))
+                               (propertize (concat " " ,FORM) 'face '(list ,@PROPS))))))
 
 (defun esh-acc (acc x)
   "Accumulator for evaluating and concatenating esh-sections."
@@ -61,38 +59,26 @@
 (setq eshell-prompt-string (with-face "└─> " '(:foreground "goldenrod1")))   ; or "└─> "
 
 
-;; (esh-section esh-dir
-;;              (all-the-icons-faicon "folder");;(propertize "\xf07b" 'face '(:family "FontAwesome"))  ;  (faicon folder)
-;;              (abbreviate-file-name (eshell/pwd))
-;;              '(:foreground "gold" :bold ultra-bold :underline t))
-(setq esh-dir (lambda () (concat (propertize "\xf07b " 'face '(:family "FontAwesome" :foreground "gold" :underline t))
-                                 (propertize (abbreviate-file-name (eshell/pwd)) 'face '(:foreground "gold" :bold ultra-bold :underline t)))))
+(esh-section esh-dir
+             "\xf07b" ;  (faicon folder)
+             "FontAwesome"
+             (abbreviate-file-name (eshell/pwd))
+             '(:foreground "gold" :bold ultra-bold :underline t))
 
-(setq esh-git (lambda () (concat (propertize "\xe907 " 'face '(:family "all-the-icons" :foreground "pink"))
-                                 (propertize (let ((branch-name (git-prompt-branch-name)))
-                                               (if branch-name
-                                                   branch-name
-                                                 "Not a git repository"))
-                                             'face '(:foreground "pink")))))
+(esh-section esh-git
+             "\xe907"  ;  (git icon)
+             "all-the-icons"
+             (let ((branch-name (git-prompt-branch-name)))
+               (if branch-name
+                   branch-name
+                 "Not a git repository"))
+             '(:foreground "pink"))
 
-(setq esh-clock (lambda () (concat (propertize "\xf017 " 'face '(:family "FontAwesome" :foreground "forest green"))
-                                   (propertize (format-time-string "%H:%M" (current-time)) 'face '(:foreground "forest green")))))
-;; (esh-section esh-git
-;;              "\xe907"  ;  (git icon)
-;;              (let ((branch-name (git-prompt-branch-name)))
-;;                (if branch-name
-;;                    branch-name
-;;                  "Not a git repository"))
-;;              '(:foreground "pink"))
-
-;; (esh-section esh-python
-;;              "\xe928"  ;  (python icon)
-;;              "pyvenv-virtual-env-name")
-
-;; (esh-section esh-clock
-;;              "\xf017"  ;  (clock icon)
-;;              (format-time-string "%H:%M" (current-time))
-;;              '(:foreground "forest green"))
+(esh-section esh-clock
+             "\xf017"  ;  (clock icon)
+             "FontAwesome"
+             (format-time-string "%H:%M" (current-time))
+             '(:foreground "forest green"))
 
 ;; Below I implement a "prompt number" section
 (setq esh-prompt-num 0)
