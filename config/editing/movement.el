@@ -24,7 +24,7 @@
 
 ;; Move between frames just like between windows
 (use-package framemove
-  :load-path "~/.emacs.d/packages/framemove"
+  :ensure nil
   :config
   (setq framemove-hook-into-windmove t))
 

@@ -10,10 +10,9 @@
 ;;(add-to-list 'default-frame-alist '(fullscreen . maximized))
 (add-hook 'window-setup-hook 'toggle-frame-fullscreen t)
 
-;; Load additional packages from .emacs.d/
-(add-to-list 'load-path "~/.emacs.d/packages/")
-
-(defvar cfg-custom-pkg-load-path "~/.emacs.d/packages/")
+;; Load additional packages from "packages" folder
+(dolist (path (directory-files "~/.emacs.d/packages" t "[a-zA-Z0-9][a-zA-Z0-9\\-_\\.]*"))
+  (add-to-list 'load-path path))
 
 (require 'package)
 (add-to-list 'package-archives
@@ -89,7 +88,6 @@
  ;; If there is more than one, they won't work right.
  )
  
-(add-to-list 'load-path "~/.emacs.d/packages/multiple-cursors.el/")
 (use-package multiple-cursors
   :ensure nil
   :bind
