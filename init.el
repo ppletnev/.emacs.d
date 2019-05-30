@@ -3,59 +3,17 @@
 (setq custom-file "~/.emacs.d/custom.el")
 (load custom-file)
 
-;; Auto-save files
-(auto-save-visited-mode 1)
-
-;; For faster rendering on Windows. Fuck Windows.
-(setq inhibit-compacting-font-caches t)
-
 ;; Disable scroll bar
 (scroll-bar-mode -1)
-
-(defface egoge-display-time
-  '((((type x w32 mac))
-     (:foreground "#FD971F" :inherit bold))
-    (((type tty))
-     (:foreground "orange")))
-  "Face used to display the time in the mode line.")
-
-;; This causes the current time in the mode line to be displayed in
-;; `egoge-display-time-face' to make it stand out visually.
-(setq display-time-string-forms
-      '((concat
-         (propertize "\xf017" 'face '(:foreground "#FD971F" :family "FontAwesome"))
-         (propertize (concat " " 24-hours ":" minutes " | week" (format-time-string "%y%V"))
-                     'face 'egoge-display-time))))
-(display-time-mode 1)
-
-;; Replace selection by typing
-(delete-selection-mode 1)
-
-;; Auto-update buffers when they were modified externally
-(global-auto-revert-mode t)
-;; Auto-refresh dired on file change
-(add-hook 'dired-mode-hook 'auto-revert-mode)
-;; Auto-update remote files
-(setq auto-revert-remote-files t)
 
 ;; Start maximized
 ;;(add-to-list 'default-frame-alist '(fullscreen . maximized))
 (add-hook 'window-setup-hook 'toggle-frame-fullscreen t)
 
-;; Highlight current line
-(global-hl-line-mode 1)
-(set-face-background hl-line-face "gray20")
-
-(setq-default cursor-type 'bar)
-
-;; No tabs
-(setq-default indent-tabs-mode nil)
-
-;; Define tab stop at ever 4'th column
-(setq tab-stop-list (number-sequence 4 120 4))
-
 ;; Load additional packages from .emacs.d/
 (add-to-list 'load-path "~/.emacs.d/packages/")
+
+(defvar cfg-custom-pkg-load-path "~/.emacs.d/packages/")
 
 (require 'package)
 (add-to-list 'package-archives
@@ -81,16 +39,6 @@
   (setq auto-package-update-hide-results t)
   (auto-package-update-maybe))
 
-(use-package all-the-icons)
-
-;; Move between windows with shift-arrows
-(windmove-default-keybindings)
-;; Move between frames just like between windows
-(use-package framemove
-  :load-path "~/.emacs.d/packages/framemove"
-  :config
-  (setq framemove-hook-into-windmove t))
-
 (use-package lsp-mode
   ;; :hook
   ;; (c-mode . lsp)
@@ -107,16 +55,6 @@
 (use-package lsp-ui
   :hook (lsp-mode . lsp-ui-mode))
 
-;; Windows
-(if (eq system-type 'windows-nt)
-    (progn (set-frame-font "Consolas 11" nil t))
-)
-
-;; OS X
-(if (eq system-type 'darwin)
-  (set-frame-font "Consolas 14" nil t)
-)
-
 ;; Smooth scrolling on Windows
 (setq auto-window-vscroll nil)
 (setq scroll-step 1)
@@ -126,37 +64,12 @@
 
 (setq lsp-clients-clangd-executable "/usr/local/Cellar/llvm/8.0.0/bin/clangd")
 
-
-(add-hook
- 'c-mode-hook
- (lambda ()
-   (font-lock-add-keywords
-    nil
-    '(
-      ("\\<\\([0-9]+\\.[0-9]*[fF]?\\)\\>" 1 font-lock-constant-face keep) ;; float constants
-      ("\\<\\(0b[01]+\\(?:U\\|UL\\|L\\|ULL\\|LL\\)?\\)\\>" 1 font-lock-constant-face keep) ;; binary constants
-      ("\\<\\(0x[0-9A-F]+\\(?:U\\|UL\\|L\\|ULL\\|LL\\)?\\)\\>" 1 font-lock-constant-face keep) ;; hex constants
-      ("\\<\\([0-9]+\\(?:U\\|UL\\|L\\|ULL\\|LL\\)?\\)\\>" 1 font-lock-constant-face keep) ;; numeric constants
-      ("\\<\\(if\\|switch\\|return\\|for\\|while\\|sizeof\\)\\>" 1 font-lock-keyword-face keep)
-      ("\\<\\([_a-zA-Z][_a-zA-Z0-9]*\\)\\>\\s *(" 1 font-lock-function-name-face keep)
-      ("\\(+\\|-\\|=\\|&\\||\\|%\\|*\\|!\\|>\\|<\\|~\\|\\^\\|/\\|\\.\\|?\\|:\\)" 1 font-lock-keyword-face keep)
-      ))))
-
 (savehist-mode 1)
 
-(load-file "~/.emacs.d/treemacs_cfg.el")
+;; (byte-recompile-directory "~/.emacs.d/config" 0)
 
-;; Settings for C language
-(load-file "~/.emacs.d/c_lang.el")
-
-;; Org-mode settings
-(load-file "~/.emacs.d/cfg_org.el")
-
-;; Macros
-(load-file "~/.emacs.d/macros.el")
-
-;; Shell
-(load-file "~/.emacs.d/lisp/shell.el")
+(dolist (file (directory-files-recursively "~/.emacs.d/config" "[a-zA-Z0-9\\-_]+\\.el"))
+        (load file))
 
 ;; Highlight symbols after certain column
 (use-package column-enforce-mode
@@ -169,13 +82,6 @@
   :config
   (global-git-gutter-mode t))
 
-;; Switch buffers
-(use-package buffer-move
-  :bind
-  ("<C-S-up>"    . buf-move-up)
-  ("<C-S-down>"  . buf-move-down)
-  ("<C-S-left>"  . buf-move-left)
-  ("<C-S-right>" . buf-move-right))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -199,17 +105,6 @@
   :bind
   ("M-S-<up>" . move-text-up)
   ("M-S-<down>" . move-text-down))
-
-(use-package avy
-  :bind
-  ("C-;"   . avy-goto-char)
-  ("C-'"   . avy-goto-char-2)
-  ("M-g f" . avy-goto-line))
-
-(defun avy-go-after-char (c)
-    (interactive "cchar:")
-    (avy-goto-char c)
-    (forward-char))
 
 ;; Parens magic
 (use-package smartparens
@@ -261,6 +156,7 @@
   (modalka-define-kbd "SPC" "C-SPC"))
 
 (use-package key-chord
+  :after avy
   :config
   (key-chord-mode 1)
   (setq key-chord-two-keys-delay 0.05)
@@ -284,36 +180,6 @@
 (use-package projectile-ripgrep
   :after projectile)
 
-(use-package rich-minority
-  :config
-  (rich-minority-mode 1)
-  (setq rm-whitelist '("projectile")))
-
-(defun kb-scroll-up-hold-cursor ()
-  "Scroll up one position in file."
-  (interactive)
-  (scroll-up-command 1))
-
-(defun kb-scroll-down-hold-cursor ()
-  "Scroll down one position in file."
-  (interactive)
-  (scroll-up-command -1))
-
-(defun kb-scroll-up ()
-  "Scroll up one position in file, move cursor with the scroll."
-  (interactive)
-  (scroll-up-command -1)
-  (forward-line -1))
-
-(defun kb-scroll-down ()
-  "Scroll down one position in file, move cursor with the scroll."
-  (interactive)
-  (scroll-up-command 1)
-  (forward-line 1))
-
-(bind-key (kbd "M-p") 'kb-scroll-up)
-(bind-key (kbd "M-n") 'kb-scroll-down)
-
 (use-package symbol-overlay
   :load-path "~/.emacs.d/packages/symbol-overlay"
   ;;:hook
@@ -323,7 +189,6 @@
   ("<f7>" . symbol-overlay-mode)
   ("<f8>" . symbol-overlay-remove-all))
 
-(setq default-text-properties '(line-height 1.15))
 
 ;; Try to guess target directory
 (setq dired-dwim-target t)
@@ -335,29 +200,12 @@
     (format "<!DOCTYPE html><html><title>Impatient Markdown</title><xmp theme=\"united\" style=\"display:none;\"> %s  </xmp><script src=\"http://strapdownjs.com/v/0.2/strapdown.js\"></script></html>" (buffer-substring-no-properties (point-min) (point-max))))
   (current-buffer)))
 
-(use-package shrink-path)
-
-(use-package doom-modeline
-  :after all-the-icons shrink-path
-  :load-path "~/.emacs.d/packages/doom-modeline"
-  :hook (after-init . doom-modeline-mode)
-  :config
-  (setq doom-modeline-icon nil)
-  (setq doom-modeline-height 0)
-  (setq doom-modeline-vcs-max-length 30)
-  (setq doom-modeline-buffer-file-name-style 'buffer-name)
-  (setq find-file-visit-truename t))
-
 ;; Use Flycheck
 (use-package flycheck
   :bind
   ("C-M-=" . flycheck-buffer)
   :config
   (setq flycheck-checker-error-threshold 2000))
-
-(use-package nyan-mode
-  :config
-  (nyan-mode 1))
 
 (use-package magit
   :bind
