@@ -8,6 +8,14 @@
       '((read-file-name-internal . ivy--regex-fuzzy)
         (t . ivy--regex-plus))))
 
+(use-package counsel)
+
+(use-package ivy-rich
+  :after (ivy counsel)
+  :config
+  (ivy-rich-mode 1)
+  (setq ivy-format-function #'ivy-format-function-line))
+
 (use-package swiper
   :after ivy
   :bind
