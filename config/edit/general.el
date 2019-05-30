@@ -12,6 +12,8 @@
 
 ;; Auto-update buffers when they were modified externally
 (global-auto-revert-mode t)
+;; Don't print "reverted buffer" messages to minibuffer
+(setq auto-revert-verbose nil)
 ;; Auto-refresh dired on file change
 (add-hook 'dired-mode-hook 'auto-revert-mode)
 ;; Auto-update remote files
