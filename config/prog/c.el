@@ -1,3 +1,9 @@
+;; Highlight symbols after certain column
+(use-package column-enforce-mode
+  :config
+  (setq column-enforce-column 120)
+  :hook (c-mode c++-mode))
+
 ;; Set indent to 4 columns
 (setq c-basic-offset 4)
 

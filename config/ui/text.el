@@ -18,3 +18,16 @@
 (set-face-background hl-line-face "gray20")
 
 (setq-default cursor-type 'bar)
+
+(use-package rainbow-delimiters
+  :hook
+  (prog-mode . rainbow-delimiters-mode))
+
+(use-package symbol-overlay
+  :ensure nil
+  ;;:hook
+  ;;(prog-mode . symbol-overlay-mode)
+  :bind
+  ("M-i" . symbol-overlay-put)
+  ("<f7>" . symbol-overlay-mode)
+  ("<f8>" . symbol-overlay-remove-all))

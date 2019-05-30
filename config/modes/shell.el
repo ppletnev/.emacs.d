@@ -1,6 +1,9 @@
 (require 'dash)
 (require 's)
 
+;; Remove cygwin warnings in Windows
+(setenv "CYGWIN" "nodosfilewarning")
+
 ;; Do not wrap long lines, just hide continuations
 (add-hook 'eshell-mode-hook 'toggle-truncate-lines)
 
