@@ -3,7 +3,15 @@
   :config
   (ivy-mode 1)
   (setq ivy-use-virtual-buffers t)
-  (setq ivy-count-format "(%d/%d) "))
+  (setq ivy-count-format "(%d/%d) ")
+  (setq ivy-re-builders-alist
+      '((read-file-name-internal . ivy--regex-fuzzy)
+        (t . ivy--regex-plus))))
+
+(use-package swiper
+  :after ivy
+  :bind
+  ("C-s" . swiper))
 
 (use-package avy
   :bind
