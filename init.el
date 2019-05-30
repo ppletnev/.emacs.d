@@ -126,37 +126,7 @@
 ;; Remove cygwin warnings in Windows
 (setenv "CYGWIN" "nodosfilewarning")
 
-(use-package modalka
-  :after key-chord
-  :config
-  ;;(key-chord-define-global ",." 'modalka-mode)
-  (modalka-define-kbd "W" "M-w")
-  (modalka-define-kbd "Y" "M-y")
-  (modalka-define-kbd "a" "C-a")
-  (modalka-define-kbd "b" "C-b")
-  (modalka-define-kbd "B" "M-b")
-  (modalka-define-kbd "e" "C-e")
-  (modalka-define-kbd "f" "C-f")
-  (modalka-define-kbd "F" "M-f")
-  (modalka-define-kbd "g" "C-g")
-  (modalka-define-kbd "n" "C-n")
-  (modalka-define-kbd "p" "C-p")
-  (modalka-define-kbd "w" "C-w")
-  (modalka-define-kbd "k" "C-k")
-  (modalka-define-kbd "y" "C-y")
-  (modalka-define-kbd ";" "C-;")
-  (modalka-define-kbd "'" "C-'")
-  (modalka-define-kbd "v" "C-v")
-  (modalka-define-kbd "V" "M-v")
-  (modalka-define-kbd "l" "C-l")
-  (modalka-define-kbd "s" "C-s")
-  (modalka-define-kbd "S" "M-s")
-  (modalka-define-kbd "=" "C-=")
-  (modalka-define-kbd "/" "C-/")
-  (modalka-define-kbd "SPC" "C-SPC"))
-
 (use-package key-chord
-  :after avy
   :config
   (key-chord-mode 1)
   (setq key-chord-two-keys-delay 0.05)

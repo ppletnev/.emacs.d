@@ -1,1 +1,1 @@
-("~/proj1131_gss_das_supp02_test/" "~/.emacs.d/")
+("~/.emacs.d/" "~/all-the-icons.el/" "~/proj1131_gss_das_supp02_test/" "~/proj1131_gss_das_supp02_test/supp/" "~/proj1125_gss_das_vdil03_src/" "~/.emacs.d/packages/symbol-overlay/" "~/.emacs.d/packages/multiple-cursors.el/")

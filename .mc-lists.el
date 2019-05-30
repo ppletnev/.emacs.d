@@ -9,6 +9,9 @@
         c-electric-star
         c-end-of-statement
         c-indent-line-or-region
+        dired-mark
+        dired-next-line
+        dired-unmark
         indent-for-tab-command
         markdown-outdent-or-delete
         ))
@@ -16,10 +19,14 @@
 (setq mc/cmds-to-run-once
       '(
         dabbrev-expand
+        dired-toggle-read-only
         end-of-buffer
         find-file
+        kbd-macro-query
         mac-mwheel-scroll
         mouse-minor-mode-menu
         mouse-select-window
         save-buffers-kill-terminal
+        undefined
+        wdired-finish-edit
         ))
