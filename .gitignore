@@ -8,3 +8,11 @@ history
 elpa/
 transient/
 url/
+custom.el
+projectile-bookmarks.eld
+image-dired/
+recentf
+bookmarks
+.dir-locals.el
+eshell/
+.last-package-update-day
