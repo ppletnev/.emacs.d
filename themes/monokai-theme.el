@@ -555,16 +555,12 @@ Also affects 'linum-mode' background."
                                       :underline unspecified
                                       :foreground ,monokai-emphasis
                                       :background ,monokai-highlight
-                                      :box (:line-width 1
-                                                        :color ,monokai-gray
-                                                        :style unspecified)))
+                                      :box nil))
       (,monokai-256-class (:inverse-video unspecified
                                            :underline unspecified
                                            :foreground ,monokai-256-foreground
                                            :background ,monokai-256-background
-                                           :box (:line-width 1
-                                                             :color ,monokai-256-highlight
-                                                             :style unspecified)))))
+                                           :box nil))))
 
    `(powerline-active1
      ((,monokai-class (:background ,monokai-gray-d))
@@ -580,16 +576,12 @@ Also affects 'linum-mode' background."
                                       :underline unspecified
                                       :foreground ,monokai-comments
                                       :background ,monokai-background
-                                      :box (:line-width 1
-                                                        :color ,monokai-gray
-                                                        :style unspecified)))
+                                      :box nil))
       (,monokai-256-class (:inverse-video unspecified
                                            :underline unspecified
                                            :foreground ,monokai-256-comments
                                            :background ,monokai-256-background
-                                           :box (:line-width 1
-                                                             :color ,monokai-256-gray
-                                                             :style unspecified)))))
+                                           :box nil))))
 
    `(powerline-inactive1
      ((,monokai-class (:background ,monokai-gray-d))
