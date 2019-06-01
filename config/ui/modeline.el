@@ -19,7 +19,7 @@
   :load-path "~/.emacs.d/packages/doom-modeline"
   :hook (after-init . doom-modeline-mode)
   :config
-  (setq doom-modeline-icon nil)
+  (setq doom-modeline-icon t)
   (setq doom-modeline-buffer-encoding nil)
   (setq doom-modeline-height 0)
   (setq doom-modeline-env-version nil)

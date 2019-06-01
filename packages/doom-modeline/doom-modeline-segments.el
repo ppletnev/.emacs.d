@@ -196,7 +196,7 @@ buffer where knowing the current project directory is important."
         (icon (doom-modeline-icon-octicon "file-directory"
                                           :face 'doom-modeline-buffer-path
                                           :v-adjust -0.05
-                                          :height 1.25)))
+                                          :height 1.0)))
     (concat (doom-modeline-spc)
             (when doom-modeline-icon
               (concat
@@ -255,7 +255,7 @@ Uses `all-the-icons-material' to fetch the icon."
       (doom-modeline-icon-material
        icon
        :face face
-       :height (or height 1.1)
+       :height (or height 1.0)
        :v-adjust (or voffset -0.225))
     (when text
       (propertize text 'face face))))
