@@ -31,3 +31,7 @@
   ("M-i" . symbol-overlay-put)
   ("<f7>" . symbol-overlay-mode)
   ("<f8>" . symbol-overlay-remove-all))
+
+(use-package writeroom-mode
+  :config
+  (setq writeroom-width 120))
