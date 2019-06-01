@@ -5,13 +5,11 @@
      (:foreground "orange")))
   "Face used to display the time in the mode line.")
 
-;; This causes the current time in the mode line to be displayed in
-;; `egoge-display-time-face' to make it stand out visually.
+
 (setq display-time-string-forms
-      '((concat
-         (propertize "\xf017" 'face '(:foreground "#FD971F" :family "FontAwesome"))
-         (propertize (concat " " 24-hours ":" minutes " | week" (format-time-string "%y%V"))
-                     'face 'egoge-display-time))))
+      '((concat (propertize "\xf017" 'face `(:foreground ,monokai-cyan :family "FontAwesome"))
+                (propertize (format-time-string " %H:%M | w%y%V") 'face `(:foreground ,monokai-cyan)))))
+
 (display-time-mode 1)
 
 
@@ -22,14 +20,16 @@
   :hook (after-init . doom-modeline-mode)
   :config
   (setq doom-modeline-icon nil)
+  (setq doom-modeline-buffer-encoding nil)
   (setq doom-modeline-height 0)
+  (setq doom-modeline-env-version nil)
   (setq doom-modeline-vcs-max-length 30)
   (setq doom-modeline-buffer-file-name-style 'buffer-name)
   (setq find-file-visit-truename t))
 
 (use-package nyan-mode
   :config
-  (nyan-mode 1))
+  (nyan-mode 0))
 
 (use-package rich-minority
   :config
