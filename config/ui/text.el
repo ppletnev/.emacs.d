@@ -23,10 +23,15 @@
   :hook
   (prog-mode . rainbow-delimiters-mode))
 
+
+(defface symbol-overlay-face-monokai
+  '((t (:background "#F4C03A" :foreground "black")))
+  "Symbol Overlay default candidate"
+  :group 'symbol-overlay)
+
 (use-package symbol-overlay
-  :ensure nil
-  ;;:hook
-  ;;(prog-mode . symbol-overlay-mode)
+  :config
+  (setq symbol-overlay-faces '(symbol-overlay-face-monokai))
   :bind
   ("M-i" . symbol-overlay-put)
   ("<f7>" . symbol-overlay-mode)
