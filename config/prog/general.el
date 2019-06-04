@@ -8,6 +8,8 @@
   :after yasnippet)
 
 (use-package dumb-jump
+  :hook
+  (prog-mode . dumb-jump-mode)
   :config
   (setq dumb-jump-selector 'ivy)
   (setq dumb-jump-force-searcher 'rg))
