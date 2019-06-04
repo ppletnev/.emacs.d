@@ -2,6 +2,6 @@
 # name: ifdef
 # key: ifdef
 # --
-#ifdef ${1:MACRO}
+#$1ifdef ${2:MACRO}
 $0
-#endif /* $1 */
+#$1endif /* $2 */

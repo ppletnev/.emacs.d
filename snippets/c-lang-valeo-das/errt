@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: XMODU_ERRT 
+# key: errt
+# --
+X$1_ERRT(${2:cond}, ERRT_$3HIGH);$0

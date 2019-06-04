@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: QAC comment
+# key: qac
+# --
+/* PRQA S ${1:msg} ${2:lines} */
+/* << ${3:comment} >> */
