@@ -74,3 +74,8 @@
 
 (bind-key (kbd "M-p") 'kb-scroll-up)
 (bind-key (kbd "M-n") 'kb-scroll-down)
+
+
+(use-package eyebrowse
+  :config
+  (eyebrowse-mode 1))

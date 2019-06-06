@@ -19,6 +19,7 @@
   :load-path "~/.emacs.d/packages/doom-modeline"
   :hook (after-init . doom-modeline-mode)
   :config
+  (setq doom-modeline-minor-modes t) 
   (setq doom-modeline-icon t)
   (setq doom-modeline-buffer-encoding nil)
   (setq doom-modeline-height 0)
@@ -31,9 +32,13 @@
   :config
   (nyan-mode 0))
 
-(use-package rich-minority
-  :config
-  (rich-minority-mode 1)
-  (setq rm-whitelist '("projectile")))
+;; (use-package rich-minority
+;;   :config
+;;   (rich-minority-mode 1)
+;;   (setq rm-whitelist '("projectile", "eyebrowse-mode")))
 
+(use-package minions
+  :config
+  (setq minions-mode-whitelist '((eyebrowse-mode . nil)))
+  (minions-mode 1))
 
