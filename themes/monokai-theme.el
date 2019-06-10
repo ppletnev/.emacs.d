@@ -155,6 +155,11 @@ Also affects 'linum-mode' background."
   :type 'string
   :group 'monokai)
 
+(defcustom monokai-background-dark "#181915"
+  "Adaptive colors - background, but darker"
+  :type 'string
+  :group 'monokai)
+
 (defcustom monokai-comments "#75715E"
   "Adaptive colors - comments"
   :type 'string
@@ -575,7 +580,7 @@ Also affects 'linum-mode' background."
      ((,monokai-class (:inverse-video unspecified
                                       :underline unspecified
                                       :foreground ,monokai-comments
-                                      :background ,monokai-background
+                                      :background ,monokai-background-dark
                                       :box nil))
       (,monokai-256-class (:inverse-video unspecified
                                            :underline unspecified
