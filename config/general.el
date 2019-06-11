@@ -1,6 +1,13 @@
 ;; Save history from previous sessions
 (savehist-mode 1)
 
+;; Undo tree with tree saving
+(use-package undo-tree
+  :config
+  (global-undo-tree-mode 1)
+  (setq undo-tree-auto-save-history t)
+  (setq undo-tree-history-directory-alist '(("." . "~/.emacs_undo_tree_saves"))))
+
 ;; Place backup files in separate dir
 (setq backup-directory-alist `(("." . "~/.emacs_saves")))
 
