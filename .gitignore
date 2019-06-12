@@ -9,6 +9,7 @@ elpa/
 transient/
 url/
 custom.el
+projectile.cache
 projectile-bookmarks.eld
 image-dired/
 recentf
