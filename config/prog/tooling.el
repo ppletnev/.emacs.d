@@ -3,7 +3,8 @@
   ;; (c-mode . lsp)
   ;; (c++mode . lsp)
   :config
-  (setq lsp-enable-snippet nil))
+  (setq lsp-enable-snippet nil)
+  (setq lsp-prefer-flymake nil))
 
 (use-package company-lsp
   :after lsp-mode

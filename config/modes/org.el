@@ -5,6 +5,8 @@
 ;; Don't add timestamp when the task is done
 (setq org-log-done nil)
 
+(setq org-agenda-files nil)
+
 (setq org-agenda-files (list "~/org/tickets.org"))
 
 (use-package org-bullets

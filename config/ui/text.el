@@ -23,6 +23,8 @@
   :hook
   (prog-mode . rainbow-delimiters-mode))
 
+;; Show matching parenthesis
+(show-paren-mode)
 
 (defface symbol-overlay-face-monokai
   '((t (:background "#F4C03A" :foreground "black")))

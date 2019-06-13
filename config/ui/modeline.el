@@ -12,6 +12,7 @@
 
 (display-time-mode 1)
 
+(setq column-number-mode t)
 
 (use-package shrink-path)
 (use-package doom-modeline
