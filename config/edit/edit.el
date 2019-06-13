@@ -6,7 +6,9 @@
 ;; Expand selection
 (use-package expand-region
   :bind
-  ("C-=" . er/expand-region))
+  ("C-=" . er/expand-region)
+  ("C--" . (lambda () (interactive) (er/expand-region -1)))
+  ("C-0" . (lambda () (interactive) (er/expand-region 0))))
 
 ;; Parens magic
 (use-package smartparens
