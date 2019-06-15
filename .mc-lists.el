@@ -11,14 +11,16 @@
         c-indent-line-or-region
         dired-mark
         dired-next-line
+        dired-subtree-toggle
         dired-unmark
         indent-for-tab-command
         markdown-outdent-or-delete
+        dabbrev-expand
         ))
 
 (setq mc/cmds-to-run-once
       '(
-        dabbrev-expand
+        avy-goto-char
         dired-toggle-read-only
         end-of-buffer
         find-file
