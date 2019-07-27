@@ -1,4 +1,7 @@
 
+;; https://github.com/bbatsov/prelude/issues/1225
+(setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")
+
 ;; Keep Custom settings in a separate file
 (setq custom-file "~/.emacs.d/custom.el")
 (load custom-file)
@@ -32,6 +35,8 @@
   (auto-package-update-maybe))
 
 ;; (byte-recompile-directory "~/.emacs.d/config" 0)
+
+(use-package s)
 
 (dolist (file (directory-files-recursively "~/.emacs.d/config" "[a-zA-Z0-9\\-_]+\\.el"))
         (load file))
