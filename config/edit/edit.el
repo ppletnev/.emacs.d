@@ -23,3 +23,6 @@
   ("C-<" . mc/mark-previous-like-this)
   ("C-c C-<" . mc/mark-all-like-this)
   ("<mouse-3>" . mc/add-cursor-on-click))
+
+(use-package ws-butler
+  :hook (prog-mode . ws-butler-mode))
