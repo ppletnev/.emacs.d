@@ -25,17 +25,42 @@
                                         (append c-font-lock-extra-types (list "\\(?:u|si\\)\\(?:8|16|32|64\\)"
                                                                               "bool_T")))))
 
+(defun my/add-visual-replacement (from to)
+  "Make `prettify-symbols-mode' replace string FROM with string TO.
+
+Updates `prettify-symbols-alist'.  You may need to toggle
+`prettify-symbols-mode' to make the changes take effect.
+
+Each character of TO is vertically aligned using the baseline,
+such that base-left of the character is aligned with base-right
+of the preceding character.  Refer to `reference-point-alist'
+for more information."
+  (push (cons from (let ((composition nil))
+                     (dolist (char (string-to-list to)
+                                   (nreverse (cdr composition)))
+                       (push char composition)
+                       (push '(Br . Bl) composition))))
+        prettify-symbols-alist))
+
+(add-hook 'c-mode-hook
+          (lambda ()
+            (my/add-visual-replacement "FALSE !=" "TRUE ==")
+            (my/add-visual-replacement "FALSE!=" "TRUE ==" )
+            (my/add-visual-replacement "!= FALSE" "== TRUE")
+            (my/add-visual-replacement "!=FALSE" "== TRUE")
+            (prettify-symbols-mode)))
+
 (add-hook
  'c-mode-hook
  (lambda ()
    (font-lock-add-keywords
     nil
-    `( ;; Highlight units or hungarian notation on variables 
+    `( ;; Highlight units or hungarian notation on variables
       (,c-mode-font-lock-suffix-regex 1 font-lock-variable-name-face keep)
       ;; TRUE/FALSE constants
       ("\\<\\(FALSE\\|TRUE\\|ERRT_ASSERT\\|ERRT_LOW\\|ERRT_HIGH\\|ERRT_INFO\\)\\>" 1 font-lock-constant-face keep)
       ;; float constants
-      ("\\<\\([0-9]+\\.[0-9]*[fF]?\\)\\>" 1 font-lock-constant-face keep) 
+      ("\\<\\([0-9]+\\.[0-9]*[fF]?\\)\\>" 1 font-lock-constant-face keep)
       ;; binary constants
       ("\\<\\(0b[01]+\\(?:U\\|UL\\|L\\|ULL\\|LL\\)?\\)\\>" 1 font-lock-constant-face keep)
       ;; hex constants
@@ -46,4 +71,3 @@
       ("\\<\\([_a-zA-Z][_a-zA-Z0-9]*\\)\\>\\s *(" 1 font-lock-function-name-face keep)
       ("\\(+\\|-\\|=\\|&\\||\\|%\\|*\\|!\\|>\\|<\\|~\\|\\^\\|/\\|\\.\\|?\\|:\\)" 1 font-lock-keyword-face keep)
       ))))
-
