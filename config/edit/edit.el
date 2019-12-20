@@ -21,8 +21,7 @@
   ("C-S-c C-S-c" . mc/edit-lines)
   ("C->" . mc/mark-next-like-this)
   ("C-<" . mc/mark-previous-like-this)
-  ("C-c C-<" . mc/mark-all-like-this)
-  ("<mouse-3>" . mc/add-cursor-on-click))
+  ("C-c C-<" . mc/mark-all-like-this))
 
 (use-package ws-butler
   :hook (prog-mode . ws-butler-mode))
