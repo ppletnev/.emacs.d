@@ -23,5 +23,4 @@
 
 (use-package aggressive-indent
   :hook
-  (c-mode . aggressive-indent-mode)
-  (c++-mode . aggressive-indent-mode))
+  (prog-mode . aggressive-indent-mode))
