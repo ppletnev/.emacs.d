@@ -7,6 +7,14 @@
 ;; Set indent to 4 columns
 (setq c-basic-offset 4)
 
+;; Do not indent namespaces
+(defun my-c-setup ()
+  (c-set-offset 'innamespace [0]) ;; no indent in namespaces
+  (c-set-offset 'inextern-lang [0]) ;; no indent for 'extern' blocks
+  )
+(add-hook 'c++-mode-hook 'my-c-setup)
+(add-hook 'c-mode-hook 'my-c-setup)
+
 (setq c-default-style "bsd")
 
 (defvar c-mode-font-lock-suffix-regex (concat
