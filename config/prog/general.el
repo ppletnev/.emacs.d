@@ -14,3 +14,9 @@
   :config
   (setq dumb-jump-selector 'ivy)
   (setq dumb-jump-force-searcher 'rg))
+
+
+;; OS X: ensure environment variables inside Emacs look the same as in the user's shell
+(if (eq system-type 'darwin)
+    (use-package exec-path-from-shell
+      :config (exec-path-from-shell-initialize)))
