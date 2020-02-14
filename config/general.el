@@ -3,6 +3,7 @@
 
 ;; Undo tree with tree saving
 (use-package undo-tree
+  :load-path "~/.emacs.d/packages/undo-tree"
   :config
   (global-undo-tree-mode 1)
   (setq undo-tree-auto-save-history t)
