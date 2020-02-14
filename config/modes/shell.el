@@ -66,7 +66,7 @@
              "\xf07b" ;  (faicon folder)
              "FontAwesome"
              (abbreviate-file-name (eshell/pwd))
-             '(:foreground "gold" :bold ultra-bold :underline t))
+             '(:foreground "gold" :bold ultra-bold :underline nil))
 
 (esh-section esh-git
              "\xe907"  ;  (git icon)
