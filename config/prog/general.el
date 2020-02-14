@@ -20,7 +20,3 @@
 (if (eq system-type 'darwin)
     (use-package exec-path-from-shell
       :config (exec-path-from-shell-initialize)))
-
-(use-package aggressive-indent
-  :hook
-  (prog-mode . aggressive-indent-mode))
