@@ -1,6 +1,6 @@
 
 ;; https://github.com/bbatsov/prelude/issues/1225
-(setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")
+;;(setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")
 
 ;; Keep Custom settings in a separate file
 (setq custom-file "~/.emacs.d/custom.el")
