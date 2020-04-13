@@ -5,7 +5,7 @@
   (if (eq system-type 'darwin)
       (setq magit-git-executable "/usr/bin/git"))
   (if (eq system-type 'windows-nt)
-      (setq magit-git-executable "~/Git"))
+      (setq magit-git-executable "C:/Program Files (x86)/Git/bin/git.exe"))
   )
 
 
