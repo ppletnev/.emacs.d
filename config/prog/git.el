@@ -1,6 +1,13 @@
 (use-package magit
   :bind
-  ("C-x g" . magit-status))
+  ("C-x g" . magit-status)
+  :config
+  (if (eq system-type 'darwin)
+      (setq magit-git-executable "/usr/bin/git"))
+  (if (eq system-type 'windows-nt)
+      (setq magit-git-executable "~/Git"))
+  )
+
 
 ;; Show git changes in gutter
 (use-package git-gutter
