@@ -17,7 +17,7 @@
 (use-package shrink-path)
 (use-package doom-modeline
   :after all-the-icons shrink-path
-  :load-path "~/.emacs.d/packages/doom-modeline"
+;;  :load-path "~/.emacs.d/packages/doom-modeline"
   :hook (after-init . doom-modeline-mode)
   :config
   (setq doom-modeline-minor-modes nil)
