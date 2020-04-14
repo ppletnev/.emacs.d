@@ -8,7 +8,6 @@ history
 elpa/
 transient/
 url/
-custom.el
 projectile.cache
 projectile-bookmarks.eld
 image-dired/
@@ -17,3 +16,6 @@ bookmarks
 .dir-locals.el
 eshell/
 .last-package-update-day
+
+# To ignore custom.el changes locally use "git update-index --assume-unchanged custom.el"
+# custom.el
