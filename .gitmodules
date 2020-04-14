@@ -1,3 +1,0 @@
-[submodule "packages/multiple-cursors.el"]
-	path = packages/multiple-cursors.el
-	url = ../multiple-cursors.el
