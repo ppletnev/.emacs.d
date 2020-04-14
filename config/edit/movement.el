@@ -24,8 +24,8 @@
 (use-package avy
   :bind
   ;;("C-;"   . avy-goto-char)
-  ("C-\\"   . avy-goto-char-2)
-  ("M-g f" . avy-goto-line))
+  ("C-'"   . avy-goto-char-2)
+  ("C-;" . avy-goto-line))
 
 (defun avy-go-after-char (c)
     (interactive "cchar:")

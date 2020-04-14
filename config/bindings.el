@@ -10,4 +10,4 @@
   (next-line 1)
   (yank))
 
-(global-set-key (kbd "C-d") 'duplicate-line)
+(global-set-key (kbd "C-c d") 'duplicate-line)
