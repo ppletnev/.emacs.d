@@ -10,7 +10,7 @@
 
 ;; Start maximized
 ;;(add-to-list 'default-frame-alist '(fullscreen . maximized))
-(add-hook 'window-setup-hook 'toggle-frame-fullscreen t)
+(add-hook 'window-setup-hook 'toggle-frame-maximized t)
 
 ;; Smooth scrolling
 (setq auto-window-vscroll nil)
