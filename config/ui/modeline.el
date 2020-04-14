@@ -20,12 +20,12 @@
   :load-path "~/.emacs.d/packages/doom-modeline"
   :hook (after-init . doom-modeline-mode)
   :config
-  (setq doom-modeline-minor-modes t) 
-  (setq doom-modeline-icon t)
+  (setq doom-modeline-minor-modes nil)
+  (setq doom-modeline-icon nil)
   (setq doom-modeline-buffer-encoding nil)
   (setq doom-modeline-height 0)
   (setq doom-modeline-env-version nil)
-  (setq doom-modeline-vcs-max-length 30)
+  (setq doom-modeline-vcs-max-length 50)
   (setq doom-modeline-buffer-file-name-style 'buffer-name)
   (setq find-file-visit-truename t))
 
