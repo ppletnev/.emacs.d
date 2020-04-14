@@ -17,7 +17,7 @@
   (smartparens-global-mode t))
 
 (use-package multiple-cursors
-  :ensure nil
+  :load-path "~/.emacs.d/packages/multiple-cursors"
   :bind
   ("C-S-c C-S-c" . mc/edit-lines)
   ("C->" . mc/mark-next-like-this)
