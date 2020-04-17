@@ -21,3 +21,5 @@
   kept-old-versions 2
   version-control t)
 
+;; 20 MB limit for GC
+(setq gc-cons-threshold 20000000)
