@@ -9,8 +9,11 @@
 
 ;; Do not indent namespaces
 (defun my-c-setup ()
-  (c-set-offset 'innamespace [0]) ;; no indent in namespaces
-  (c-set-offset 'inextern-lang [0]) ;; no indent for 'extern' blocks
+  (c-set-offset 'innamespace '0) ;; no indent in namespaces
+  (c-set-offset 'inextern-lang '0) ;; no indent for 'extern' blocks
+  (c-set-offset 'case-label '0) ;; no indent case label
+  (c-set-offset 'statement-case-open '+) ;; base indent after case label
+  (c-set-offset 'statement-case-open '+) ;; base indent after case label
   )
 (add-hook 'c++-mode-hook 'my-c-setup)
 (add-hook 'c-mode-hook 'my-c-setup)
