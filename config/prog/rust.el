@@ -1,4 +1,5 @@
-(use-package rust-mode)
+(use-package rust-mode
+  :hook (rust-mode . lsp))
 
 (use-package cargo)
 
