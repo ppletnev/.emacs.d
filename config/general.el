@@ -17,9 +17,12 @@
 
 ;; Keep many backups of the same file
 (setq delete-old-versions t
-  kept-new-versions 6
-  kept-old-versions 2
-  version-control t)
+      kept-new-versions 6
+      kept-old-versions 2
+      version-control t)
 
-;; 20 MB limit for GC
-(setq gc-cons-threshold 20000000)
+;; 100 MB limit for GC
+(setq gc-cons-threshold 100000000)
+
+;; Amount of data which Emacs reads from the process
+(setq read-process-output-max (* 1024 1024))
